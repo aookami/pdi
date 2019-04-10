@@ -3,6 +3,11 @@ I = Io;
 
 rmax = max(max(I(:,:)));
 rmin = min(min(I(:,:)));
+
+
+rmaxd = double(max(max(I(:,:))))/255;
+rmind = double(min(min(I(:,:))))/255;
+
 L = 256;
 
 %o = ((L-1)/(rmax-rmin))*(i-rmin);
@@ -15,7 +20,7 @@ for x = 1:291
 end
 
 Im = mat2gray(Io);
-Ia = imadjust(Io);
+Ia = imadjust(Io,[rmind rmaxd],[0 1],1);
 
 figure, subplot(1,3,1), imshow(I), title('handmade');
 subplot(1,3,2), imshow(Im), title('mat2gray');
