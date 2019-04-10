@@ -11,7 +11,7 @@ y2(98:161) = 250;
 y2(162:256) = 161:255;
 
 
-I = imread('moon.tif');
+I = imread('Fig0310(b)(washed_out_pollen_image).tif');
 y = uint8(0:255);
 plot(y); xlim([0 255]); ylim([0 255]);
 Ia = intlut(I,y2);

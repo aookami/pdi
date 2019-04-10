@@ -11,7 +11,7 @@ y1(162:256) = (1/3)*(161:255) + 170;
 %Display
 y1;
 
-I = imread('moon.tif');
+I = imread('Fig0310(b)(washed_out_pollen_image).tif');
 y = uint8(0:255);
 plot(y); xlim([0 255]); ylim([0 255]);
 Ia = intlut(I,y1);
