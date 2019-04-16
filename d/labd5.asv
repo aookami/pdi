@@ -1,0 +1,5 @@
+I1 = imread('contrast.jpg');
+I2 = imread('mask.jpg');
+
+
+imshow(cat(2, I1, I2))

@@ -1,0 +1,12 @@
+
+
+x = dir('C:\Program Files\MATLAB\R2015b\toolbox\images\imdemos');
+sizex, sizey = size(x);
+
+for i = 5:sizex
+   xstrutt = struct2cell(x(i))
+   if endsWith(x({1}, '.png')
+       fprintf(xstrutt{1})
+   end
+end
+
