@@ -1,0 +1,8 @@
+I1 = imread('b5s.40.bmp');
+I2 = imread('b5s.100.bmp');
+
+Hg = fspecial('gaussian', 5, 1);
+
+figure, 
+subplot(1,2,1) ,imshow(imfilter(I1, Hg));
+subplot(1,2,2), imshow(imfilter(I2, Hg));
