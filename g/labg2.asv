@@ -1,0 +1,21 @@
+
+
+clear all, close all
+clc
+% Cria imagem sintética g
+w = 256;
+objt = 192; fundo = 64; rdn = 10;
+g = makeImSynthHex(w,objt,fundo,rdn);
+g = im2double(g);
+Sh = fspecial('sobel');
+gSh = imfilter(g,Sh,'replicate','conv');
+gSh2 = imfilter(g, Sh, 'replicate');
+
+% Normaliza
+gSh = mat2gray(gSh);
+gSh2 = mat
+
+
+
+
+
