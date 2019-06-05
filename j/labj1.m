@@ -1,7 +1,7 @@
-im1 = imread('hanoi_01_10.png');
+im1 = imread('hanoi_01_15.png');
 
 [sizex, sizey, sizez] = size(im1);
-
+imshow(im1)
 
 for x = 1:sizex
     for y = 1:sizey
@@ -261,6 +261,60 @@ else
 end
 
 
+disp('O pino 1 possui os seguintes discos:')
+if pin1(5) == 1
+    disp('amarelo')
+end
+
+if pin1(4) == 1
+    disp('vermelho')
+end
+
+if pin1(3) == 1
+    disp('azul')
+end
+if pin1(2) == 1
+    disp('verde')
+end
+if pin1(1) == 1
+    disp('laranja')
+end
+disp('O pino 2 possui os seguintes discos:')
+if pin2(5) == 1
+    disp('amarelo')
+end
+if pin2(4) == 1
+    disp('vermelho')
+end
+
+if pin2(3) == 1
+    disp('azul')
+end
+if pin2(2) == 1
+    disp('verde')
+end
+if pin2(1) == 1
+    disp('laranja')
+end
+
+
+disp('O pino 3 possui os seguintes discos:')
+if pin3(5) == 1
+    disp('amarelo')
+end
+if pin3(4) == 1
+    disp('vermelho')
+end
+if pin3(3) == 1
+    disp('azul')
+end
+if pin3(2) == 1
+    disp('verde')
+end
+
+if pin3(1) == 1
+    disp('laranja')
+end
 
 
 
@@ -290,15 +344,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
-imshow(im1);
 
 
 
