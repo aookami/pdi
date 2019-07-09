@@ -1,0 +1,66 @@
+clear all, clc, close all;
+
+
+folder = "3 V";
+seq = "03 A";
+imageName = strcat("CAM_if69d_DB/", folder, "/", seq , ".png") ;
+%imageName = "CAM_if69d_DB/0,5 V/13 B.JPG";
+gridFile = imread(strcat("CAM_if69d_DB/", folder, "/", seq , "_GBW.png")) ;
+vesselImage = imread(imageName);
+
+
+vesselImage = vesselImage(:,:,2);
+
+gdLsu = im2uint8(vesselImage);
+
+gdLsu = 255-gdLsu;
+se = strel('disk',16);
+gdLsu = imtophat(gdLsu, se);
+
+gdLsu = imadjust(gdLsu);
+
+gdLsu = imbinarize(gdLsu);
+
+se = strel('disk', 2 );
+
+gdLsu = imdilate(gdLsu, se);
+
+gdLsu = imdilate(gdLsu, se);
+    
+gdLsu = imdilate(gdLsu, se);
+gdLsu = mat2gray(uint8(gdLsu));
+
+kernel = [-1 -1 -1;-1 8 -1;-1 -1 -1];
+gdLsu = imfilter(gdLsu, kernel, 'same');
+
+gdLsu = imbinarize(gdLsu);
+gdLsu = logical(gdLsu);
+
+figure,
+imshow(gdLsu);
+
+figure
+subplot(1,2,1)
+imshow(vesselImage);
+title("Imagem Original");
+subplot(1,2,2)
+imshow(gdLsu);
+title("Imagem Filtrada");
+
+[sizex, sizey] = size(gridFile);
+
+finalgrid = false(sizex, sizey);
+
+for x = 1:sizex
+   for y = 1:sizey
+       if(gridFile(x,y) == 1)
+       if(gdLsu(x,y) == 1)
+          finalGrid(x,y) = 1; 
+       end
+       end
+      
+       
+   end
+end
+
+sum(sum(finalGrid))
